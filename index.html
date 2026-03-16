@@ -24,23 +24,23 @@
         }
 
         .card-hover:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             transition: all 0.3s ease;
         }
 
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 25px;
+            right: 25px;
             background-color: #25d366;
             color: white;
-            padding: 15px;
+            padding: 12px;
             border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             z-index: 1000;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .flash-delivery {
@@ -49,7 +49,7 @@
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
 
@@ -57,9 +57,9 @@
             background: #ef4444;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 8px;
             font-weight: 800;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
@@ -72,11 +72,7 @@
             animation: marquee 20s linear infinite;
         }
 
-        /* Animation Machine à écrire */
-        .typing-container {
-            display: inline-block;
-        }
-        
+        /* Animation Machine à écrire originale */
         .typing-text::after {
             content: "|";
             animation: blink 0.7s infinite;
@@ -86,72 +82,85 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
+
+        .reveal-text {
+            animation: blur-in 0.8s ease-out forwards;
+        }
+
+        @keyframes blur-in {
+            from { opacity: 0; filter: blur(10px); transform: translateY(10px); }
+            to { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
     <!-- Bandeau d'annonce -->
-    <div class="announcement-bar text-xs md:text-sm">
+    <div class="announcement-bar text-[10px] md:text-xs text-white">
         🚀 LIVRAISON GRATUITE ET MAXIMUM 1 HEURE À CASABLANCA ⚡
     </div>
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 glass-effect border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-2">
-                    <div class="nfc-gradient p-2 rounded-lg shadow-sm">
-                        <i class="fas fa-rss text-white text-xl transform rotate-45"></i>
+                    <div class="nfc-gradient p-1.5 rounded-lg shadow-sm">
+                        <i class="fas fa-rss text-white text-lg transform rotate-45"></i>
                     </div>
-                    <span class="text-2xl font-bold tracking-tight text-gray-900">GOLDTAP<span class="text-yellow-600">NFC</span></span>
+                    <span class="text-xl font-bold tracking-tight text-gray-900">GOLDTAP<span class="text-yellow-600">NFC</span></span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
-                    <a href="#accueil" class="hover:text-yellow-600 transition text-xs font-bold uppercase tracking-widest text-gray-500">Accueil</a>
-                    <a href="#solutions" class="hover:text-yellow-600 transition text-xs font-bold uppercase tracking-widest text-gray-500">Secteurs</a>
-                    <a href="#packs" class="hover:text-yellow-600 transition text-xs font-bold uppercase tracking-widest text-gray-500">Nos Packs</a>
-                    <a href="https://wa.me/212661389143" target="_blank" class="bg-gray-900 text-white px-6 py-2 rounded-full hover:bg-gray-800 transition text-xs font-bold uppercase">Commander</a>
+                <div class="hidden md:flex items-center space-x-6 font-medium text-xs text-gray-900">
+                    <a href="#accueil" class="hover:text-yellow-600 transition uppercase tracking-widest text-gray-500">Accueil</a>
+                    <a href="#packs" class="hover:text-yellow-600 transition uppercase tracking-widest text-gray-500">Packs</a>
+                    <a href="#solutions" class="hover:text-yellow-600 transition uppercase tracking-widest text-gray-500">Secteurs</a>
+                    <a href="#travail" class="hover:text-yellow-600 transition uppercase tracking-widest text-gray-500">Galerie</a>
+                    <a href="https://wa.me/212661389143" target="_blank" class="bg-gray-900 text-white px-5 py-2 rounded-full hover:bg-gray-800 transition uppercase">Commander</a>
                 </div>
                 <div class="md:hidden">
-                    <i class="fas fa-bars text-2xl"></i>
+                    <i class="fas fa-bars text-xl text-gray-900"></i>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Section Héro -->
-    <section id="accueil" class="relative pt-12 md:pt-16 pb-24 md:pb-32 overflow-hidden bg-white border-b border-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-yellow-100 text-yellow-700 text-[10px] md:text-xs font-bold mb-6 uppercase tracking-wider">
+    <section id="accueil" class="relative pt-10 md:pt-14 pb-16 md:pb-20 overflow-hidden bg-white border-b border-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="reveal-text">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-[10px] font-bold mb-5 uppercase tracking-wider">
                         <i class="fas fa-star text-yellow-500"></i> Boosteur de Réputation en ligne
                     </div>
-                    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6 min-h-[120px] md:min-h-[160px]">
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-5 min-h-[100px] md:min-h-[140px]">
                         Votre Carte NFC pour <br>
-                        <span class="text-yellow-600 font-black italic typing-text" id="typewriter"></span>
+                        <span id="typewriter" class="text-yellow-600 italic font-black typing-text"></span>
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+                    <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
                         Le moyen le plus simple et rapide de récolter des avis 5 étoiles à Casablanca. Approchez simplement le téléphone de votre client de votre carte GOLDTAP.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <a href="https://wa.me/212661389143?text=Bonjour%20GoldTap!%20Je%20souhaite%20commander%20une%20carte%20NFC%20pour%20mes%20avis%20Google." target="_blank" class="bg-gray-900 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-800 transition flex items-center justify-center gap-2 shadow-lg">
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                        <a href="https://wa.me/212661389143?text=Bonjour%20GoldTap!%20Je%20souhaite%20commander%20une%20carte%20NFC%20pour%20mes%20avis%20Google." target="_blank" class="bg-gray-900 text-white px-6 py-3.5 rounded-xl text-base font-bold hover:bg-gray-800 transition flex items-center justify-center gap-2 shadow-md">
                             Commander via WhatsApp <i class="fab fa-whatsapp text-green-400"></i>
                         </a>
-                        <a href="#packs" class="border-2 border-gray-200 bg-white text-gray-700 px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-50 transition flex items-center justify-center gap-2">
+                        <a href="#packs" class="border border-gray-200 bg-white text-gray-700 px-6 py-3.5 rounded-xl text-base font-bold hover:bg-gray-50 transition flex items-center justify-center gap-2 text-gray-900">
                             Voir nos PACKS
                         </a>
                     </div>
-                    <p class="mt-6 text-red-600 font-bold text-sm uppercase flex items-center justify-center md:justify-start gap-2">
-                        <i class="fas fa-truck-moving"></i> Livraison Gratuite en 1H à Casa
+                    <p class="mt-6 text-red-600 font-bold text-xs uppercase flex items-center justify-center md:justify-start gap-2">
+                        <i class="fas fa-truck-moving text-red-600"></i> Livraison Gratuite en 1H à Casa
                     </p>
                 </div>
-                <div class="relative flex justify-center mt-10 md:mt-0">
-                    <div class="absolute -top-10 -right-10 w-48 md:w-64 h-48 md:h-64 bg-yellow-100 rounded-full blur-3xl opacity-30"></div>
-                    <div class="relative z-10 w-full max-w-sm px-4 md:px-0">
-                        <div class="relative overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-yellow-500/20 transform rotate-2 hover:rotate-0 transition-all duration-500">
-                            <img src="https://i.postimg.cc/JhD4hgJb/6649A5D0-D549-42DE-9108-79E5AA9065BE.png" alt="Exemple Carte GoldTap" class="w-full">
-                            <div class="absolute top-6 right-6 bg-yellow-500 text-black font-black px-4 py-1.5 rounded-xl text-[10px] tracking-widest shadow-2xl">
-                                EXEMPLE
+                <div class="relative flex justify-center mt-8 md:mt-0">
+                    <div class="absolute -top-5 -right-5 w-40 md:w-56 h-40 md:h-56 bg-yellow-100 rounded-full blur-3xl opacity-25"></div>
+                    <div class="relative z-10 w-full max-w-sm px-4 md:px-0 flex items-center justify-center">
+                        <div class="relative w-full aspect-[4/3]">
+                            <div class="absolute top-0 left-0 w-4/5 rounded-[1.5rem] shadow-xl border-2 border-white/20 transform -rotate-6 transition-transform hover:rotate-0 duration-500 overflow-hidden">
+                                <img src="https://i.postimg.cc/JhD4hgJb/6649A5D0-D549-42DE-9108-79E5AA9065BE.png" alt="Exemple GoldTap" class="w-full">
+                            </div>
+                            <div class="absolute bottom-0 right-0 w-4/5 rounded-[1.5rem] shadow-2xl border-2 border-yellow-500 transform rotate-3 transition-transform hover:rotate-0 duration-500 overflow-hidden">
+                                <img src="https://i.postimg.cc/8kv903nP/IMG-9218.jpg" alt="Real GoldTap Card" class="w-full">
+                                <div class="absolute top-3 right-3 bg-yellow-600 text-black font-black px-2 py-0.5 rounded text-[8px] tracking-widest uppercase text-white">PRO</div>
                             </div>
                         </div>
                     </div>
@@ -160,226 +169,155 @@
         </div>
     </section>
 
+    <!-- Packs Section (DÉPLACÉE EN HAUT) -->
+    <section id="packs" class="py-16 bg-gray-50 border-t border-gray-100 text-gray-900">
+        <div class="max-w-6xl mx-auto px-4 text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-black underline decoration-yellow-500 uppercase">Nos Packs Exclusifs</h2>
+            <p class="text-sm md:text-base text-gray-600 italic font-medium mt-2 tracking-wide">Solutions premium - Livraison gratuite 1 heure Casablanca.</p>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- PACK PRO -->
+            <div class="bg-white p-5 rounded-[2rem] shadow-lg border card-hover">
+                <img src="https://i.postimg.cc/t4s0RT40/IMG-9204.jpg" class="rounded-2xl h-44 w-full object-cover mb-4">
+                <h3 class="text-lg font-black uppercase">PACK PRO</h3>
+                <div class="text-2xl font-black mb-4 italic">150 DH</div>
+                <ul class="text-[11px] space-y-2 mb-6">
+                    <li><i class="fas fa-check text-yellow-600 mr-2"></i> 1 Carte NFC Premium</li>
+                    <li><i class="fas fa-paint-brush text-yellow-600 mr-2"></i> Logo Personnalisé Inclus</li>
+                    <li class="text-red-600 font-bold italic"><i class="fas fa-truck mr-2"></i> LIVRAISON GRATUITE (1H)</li>
+                </ul>
+                <a href="https://wa.me/212661389143?text=Bonjour%20GoldTap!%20Je%20souhaite%20commander%20le%20PACK%20PRO%20(1%20Carte)%20à%20150%20DH." target="_blank" class="w-full py-3 block text-center border-2 border-gray-900 rounded-xl font-black uppercase text-[9px] hover:bg-gray-900 hover:text-white transition">Commander</a>
+            </div>
+            <!-- PACK GOLD -->
+            <div class="bg-gray-900 p-5 rounded-[2rem] shadow-xl border-2 border-yellow-500 text-white md:scale-105 relative">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-600 text-black px-4 py-1 rounded-full text-[8px] font-black uppercase tracking-wider">Pack Duo Pro</div>
+                <img src="https://i.postimg.cc/g0ktqF4x/IMG-9142.jpg" class="rounded-2xl h-44 w-full object-cover mb-4">
+                <h3 class="text-lg font-black uppercase text-yellow-500">PACK GOLD</h3>
+                <div class="text-2xl font-black mb-4 italic">280 DH</div>
+                <ul class="text-[11px] space-y-2 mb-6">
+                    <li><i class="fas fa-check text-yellow-500 mr-2"></i> 2 Cartes NFC Premium</li>
+                    <li><i class="fas fa-paint-brush text-yellow-500 mr-2"></i> Logos Personnalisés Inclus</li>
+                    <li class="text-yellow-500 font-bold italic"><i class="fas fa-truck mr-2"></i> LIVRAISON GRATUITE (1H)</li>
+                </ul>
+                <a href="https://wa.me/212661389143?text=Bonjour%20GoldTap!%20Je%20souhaite%20commander%20le%20PACK%20GOLD%20(2%20Cartes)%20à%20280%20DH." target="_blank" class="w-full py-3 block text-center bg-yellow-600 text-black rounded-xl font-black uppercase text-[9px] hover:bg-yellow-500 transition">Commander</a>
+            </div>
+            <!-- PACK RESTAURANT -->
+            <div class="bg-white p-5 rounded-[2rem] shadow-lg border border-red-500 card-hover">
+                <img src="https://i.postimg.cc/prxsTw99/79FD6CEA-CC88-4FBB-959A-91ABEE563EAC.png" class="rounded-2xl h-44 w-full object-cover mb-4">
+                <h3 class="text-lg font-black uppercase">PACK RESTAURANT</h3>
+                <div class="text-2xl font-black mb-4 italic">1500 DH</div>
+                <ul class="text-[11px] space-y-2 mb-6">
+                    <li><i class="fas fa-check text-red-600 mr-2"></i> POUR 10 TABLES</li>
+                    <li><i class="fas fa-utensils text-red-600 mr-2"></i> MENU DIGITAL À TABLE</li>
+                    <li><i class="fas fa-star text-red-600 mr-2"></i> BOOST AVIS GOOGLE</li>
+                    <li class="text-red-600 font-bold italic"><i class="fas fa-truck mr-2"></i> LIVRAISON GRATUITE</li>
+                </ul>
+                <a href="https://wa.me/212661389143?text=Bonjour%20GoldTap!%20Je%20souhaite%20commander%20le%20PACK%20RESTAURANT%20(10%20Tables)%20à%201500%20DH." target="_blank" class="w-full py-3 block text-center bg-red-600 text-white rounded-xl font-black uppercase text-[9px] hover:bg-red-700 transition">Commander</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Marquee Banner -->
-    <section class="py-6 md:py-8 bg-red-600 text-white font-bold overflow-hidden">
+    <section class="py-4 bg-red-600 text-white font-bold overflow-hidden">
         <div class="flex whitespace-nowrap animate-marquee">
-            <div class="mx-4 flex items-center gap-4 uppercase text-xs md:text-base"><i class="fas fa-truck-loading"></i> Livraison Gratuite 1H Casa</div>
-            <div class="mx-4 flex items-center gap-4 uppercase text-xs md:text-base"><i class="fas fa-star"></i> Boost Avis Google</div>
-            <div class="mx-4 flex items-center gap-4 uppercase text-xs md:text-base"><i class="fas fa-utensils"></i> Menu Digital + Site Web</div>
-            <div class="mx-4 flex items-center gap-4 uppercase text-xs md:text-base"><i class="fas fa-camera"></i> Instagram : @GOLDTAP_NFC</div>
-            <div class="mx-4 flex items-center gap-4 uppercase text-xs md:text-base"><i class="fas fa-truck-loading"></i> Livraison Gratuite 1H Casa</div>
-            <div class="mx-4 flex items-center gap-4 uppercase text-xs md:text-base"><i class="fas fa-star"></i> Boost Avis Google</div>
+            <div class="mx-6 flex items-center gap-4 uppercase text-[10px] md:text-sm text-white"><i class="fas fa-truck-loading"></i> Livraison Gratuite 1H Casa</div>
+            <div class="mx-6 flex items-center gap-4 uppercase text-[10px] md:text-sm text-white"><i class="fas fa-star"></i> Boost Avis Google</div>
+            <div class="mx-6 flex items-center gap-4 uppercase text-[10px] md:text-sm text-white"><i class="fas fa-utensils"></i> Menu Digital + Site Web</div>
+            <div class="mx-6 flex items-center gap-4 uppercase text-[10px] md:text-sm text-white"><i class="fas fa-camera"></i> Instagram : @GOLDTAP_NFC</div>
+            <div class="mx-6 flex items-center gap-4 uppercase text-[10px] md:text-sm text-white"><i class="fas fa-truck-loading"></i> Livraison Gratuite 1H Casa</div>
         </div>
     </section>
 
     <!-- Secteurs d'activité -->
-    <section id="solutions" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tight">Ils utilisent <span class="text-yellow-600">GOLDTAPNFC</span></h2>
-            <p class="max-w-3xl mx-auto text-gray-600 text-lg md:text-xl mb-16">Une solution sur mesure pour les leaders de chaque secteur à Casablanca.</p>
+    <section id="solutions" class="py-16 bg-white text-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl md:text-4xl font-black mb-4 uppercase tracking-tight">Ils utilisent <span class="text-yellow-600">GOLDTAPNFC</span></h2>
+            <p class="max-w-2xl mx-auto text-gray-600 text-sm md:text-base mb-12">Une solution sur mesure pour les leaders de chaque secteur à Casablanca.</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Restaurants -->
-                <div class="p-8 rounded-[2rem] bg-gray-50 border border-gray-100 card-hover text-left relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fas fa-utensils text-6xl text-yellow-600"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-[1.5rem] bg-gray-50 border border-gray-100 card-hover text-left relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-utensils text-5xl text-yellow-600"></i>
                     </div>
-                    <h3 class="text-xl font-black mb-4 uppercase text-gray-900">Restaurants</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Digitalisez votre salle avec notre <strong>Menu à table</strong>. Récoltez des avis clients avant même qu'ils ne quittent la table.</p>
-                    <ul class="text-[10px] font-bold uppercase text-yellow-600 space-y-2">
-                        <li><i class="fas fa-check mr-2"></i> Menu interactif 10 tables</li>
-                        <li><i class="fas fa-check mr-2"></i> Avis Google boostés</li>
-                    </ul>
+                    <h3 class="text-lg font-black mb-3 uppercase">Restaurants</h3>
+                    <p class="text-gray-500 text-xs leading-relaxed mb-4">Digitalisez votre salle avec notre Menu à table. Récoltez des avis clients en fin de repas.</p>
                 </div>
-                <!-- Coiffeurs / Barber -->
-                <div class="p-8 rounded-[2rem] bg-gray-50 border border-gray-100 card-hover text-left relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fas fa-cut text-6xl text-yellow-600"></i>
+                <div class="p-6 rounded-[1.5rem] bg-gray-50 border border-gray-100 card-hover text-left relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-cut text-5xl text-yellow-600"></i>
                     </div>
-                    <h3 class="text-xl font-black mb-4 uppercase text-gray-900">Coiffeurs</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Boostez votre Instagram et votre fiche Google directement sur le fauteuil. Montrez votre talent au monde entier.</p>
-                    <ul class="text-[10px] font-bold uppercase text-yellow-600 space-y-2">
-                        <li><i class="fas fa-check mr-2"></i> Followers Instagram</li>
-                        <li><i class="fas fa-check mr-2"></i> Avis clients photo</li>
-                    </ul>
+                    <h3 class="text-lg font-black mb-3 uppercase">Coiffeurs</h3>
+                    <p class="text-gray-500 text-xs leading-relaxed mb-4">Boostez votre Instagram et votre fiche Google directement depuis le fauteuil.</p>
                 </div>
-                <!-- Médecins -->
-                <div class="p-8 rounded-[2rem] bg-gray-50 border border-gray-100 card-hover text-left relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fas fa-user-md text-6xl text-yellow-600"></i>
+                <div class="p-6 rounded-[1.5rem] bg-gray-50 border border-gray-100 card-hover text-left relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-user-md text-5xl text-yellow-600"></i>
                     </div>
-                    <h3 class="text-xl font-black mb-4 uppercase text-gray-900">Médecins</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Renforcez la crédibilité de votre cabinet. Les patients choisissent le médecin le mieux noté à Casablanca.</p>
-                    <ul class="text-[10px] font-bold uppercase text-yellow-600 space-y-2">
-                        <li><i class="fas fa-check mr-2"></i> Confiance absolue</li>
-                        <li><i class="fas fa-check mr-2"></i> Réputation pro</li>
-                    </ul>
+                    <h3 class="text-lg font-black mb-3 uppercase">Médecins</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4">Renforcez la crédibilité de votre cabinet. Les patients choisissent les mieux notés.</p>
                 </div>
-                <!-- Avocats -->
-                <div class="p-8 rounded-[2rem] bg-gray-50 border border-gray-100 card-hover text-left relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fas fa-gavel text-6xl text-yellow-600"></i>
+                <div class="p-6 rounded-[1.5rem] bg-gray-50 border border-gray-100 card-hover text-left relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-gavel text-5xl text-yellow-600"></i>
                     </div>
-                    <h3 class="text-xl font-black mb-4 uppercase text-gray-900">Avocats</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">L'élégance du networking sans papier. Partagez vos coordonnées et récoltez des recommandations en un tap.</p>
-                    <ul class="text-[10px] font-bold uppercase text-yellow-600 space-y-2">
-                        <li><i class="fas fa-check mr-2"></i> Networking d'élite</li>
-                        <li><i class="fas fa-check mr-2"></i> Prestige du cabinet</li>
-                    </ul>
+                    <h3 class="text-lg font-black mb-3 uppercase">Avocats</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4">L'élégance du networking sans papier. Partagez vos coordonnées en un tap.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Packs Section -->
-    <section id="packs" class="py-20 md:py-24 bg-gray-50 border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4 italic underline decoration-yellow-500 uppercase">Nos Packs Exclusifs</h2>
-            <p class="text-lg md:text-xl text-gray-600 italic font-bold">Solutions premium avec livraison gratuite en 1 heure.</p>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8 items-start">
-            
-            <!-- PACK PRO CARD -->
-            <div class="bg-white p-6 rounded-[2.5rem] shadow-lg border border-gray-100 flex flex-col card-hover">
-                <div class="mb-6 overflow-hidden rounded-3xl h-56 md:h-64 bg-gray-100 shadow-inner">
-                    <img src="https://i.postimg.cc/xdTpyDgJ/IMG-9143.jpg" alt="Pack Pro Card Blanche" class="w-full h-full object-cover">
-                </div>
-                <div class="px-2 md:px-4">
-                    <h3 class="text-xl font-black mb-2 uppercase tracking-tight text-gray-900">PACK PRO</h3>
-                    <p class="text-gray-500 mb-6 text-sm italic">Solution individuelle</p>
-                    <div class="text-4xl font-black mb-8 text-gray-900 italic">250 <span class="text-lg text-gray-400 uppercase font-normal text-gray-400">DH</span></div>
-                    <ul class="space-y-4 mb-10 flex-grow text-gray-600 text-sm font-medium">
-                        <li class="flex items-center"><i class="fas fa-id-card text-yellow-600 mr-3"></i> 1 Carte NFC Premium</li>
-                        <li class="flex items-center text-red-600"><i class="fas fa-truck mr-3"></i> <strong>LIVRAISON GRATUITE (1H)</strong></li>
-                        <li class="flex items-center"><i class="fas fa-paint-brush text-yellow-600 mr-3"></i> <strong>Logo Perso Inclus</strong></li>
-                        <li class="flex items-center"><i class="fas fa-star text-yellow-600 mr-3"></i> Boost Avis Google</li>
-                    </ul>
-                    <a href="https://wa.me/212661389143?text=Bonjour%20GoldTap!%20Je%20souhaite%20commander%201%20CARTE%20(Pack%20PRO)%20à%20250%20DH." target="_blank" class="w-full py-4 block text-center border-2 border-gray-900 text-gray-900 rounded-2xl font-black hover:bg-gray-900 hover:text-white transition uppercase text-xs tracking-widest">Commander 1 Carte</a>
-                </div>
+    <!-- Galerie -->
+    <section id="travail" class="py-16 bg-white border-t border-gray-100 text-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl md:text-4xl font-black mb-4 uppercase tracking-tight">Notre <span class="text-yellow-600">Travail</span></h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
+                <div class="rounded-[1.2rem] shadow-md overflow-hidden aspect-square border border-gray-100"><img src="https://i.postimg.cc/7Z332161/IMG-9208.jpg" class="w-full h-full object-cover"></div>
+                <div class="rounded-[1.2rem] shadow-md overflow-hidden aspect-square border border-gray-100"><img src="https://i.postimg.cc/9MKbpmj2/IMG-9210.jpg" class="w-full h-full object-cover"></div>
+                <div class="rounded-[1.2rem] shadow-md overflow-hidden aspect-square border border-gray-100"><img src="https://i.postimg.cc/t4s0RT40/IMG-9204.jpg" class="w-full h-full object-cover"></div>
+                <div class="rounded-[1.2rem] shadow-md overflow-hidden aspect-square border border-gray-100"><img src="https://i.postimg.cc/g0ktqF4x/IMG-9142.jpg" class="w-full h-full object-cover"></div>
             </div>
-
-            <!-- PACK GOLD CARD -->
-            <div class="bg-gray-900 p-6 rounded-[2.5rem] shadow-2xl border-2 border-yellow-500 flex flex-col relative card-hover text-white">
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-600 text-black px-6 py-1 rounded-full text-[10px] font-black uppercase tracking-wider whitespace-nowrap">Pack Duo Pro</div>
-                <div class="mb-6 overflow-hidden rounded-3xl h-56 md:h-64 bg-black shadow-inner border border-white/10">
-                    <img src="https://i.postimg.cc/g0ktqF4x/IMG-9142.jpg" alt="Pack Gold Card Noire" class="w-full h-full object-cover">
-                </div>
-                <div class="px-2 md:px-4">
-                    <h3 class="text-xl font-black mb-2 uppercase text-yellow-500 tracking-tight">PACK GOLD</h3>
-                    <p class="text-gray-400 mb-6 text-sm italic">Le pack idéal pour les pro</p>
-                    <div class="text-4xl font-black mb-8 text-white italic">450 <span class="text-lg text-yellow-500 uppercase font-normal text-gray-400">DH</span></div>
-                    <ul class="space-y-4 mb-10 flex-grow text-gray-300 text-sm font-medium">
-                        <li class="flex items-center"><i class="fas fa-copy text-yellow-500 mr-3"></i> 2 Cartes NFC Premium</li>
-                        <li class="flex items-center text-yellow-500"><i class="fas fa-truck mr-3"></i> <strong>LIVRAISON GRATUITE (1H)</strong></li>
-                        <li class="flex items-center"><i class="fas fa-paint-brush text-yellow-500 mr-3"></i> <strong>Logo Perso Inclus</strong></li>
-                        <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-3"></i> Boost Avis Google</li>
-                    </ul>
-                    <a href="https://wa.me/212661389143?text=Bonjour%20GoldTap!%20Je%20souhaite%20commander%202%20CARTES%20(Pack%20GOLD)%20à%20450%20DH." target="_blank" class="w-full py-4 block text-center bg-yellow-600 text-black rounded-2xl font-black hover:bg-yellow-500 transition shadow-xl uppercase tracking-tighter text-xs tracking-widest">Commander 2 Cartes</a>
-                </div>
+            <!-- Vidéo démo -->
+            <div class="max-w-sm md:max-w-md mx-auto bg-gray-900 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-yellow-500/10 mb-8">
+                <video class="w-full" autoplay muted loop playsinline>
+                    <source src="https://files.catbox.moe/zsngo7.mov" type="video/mp4">
+                </video>
             </div>
-
-            <!-- PACK RESTAURANT -->
-            <div class="bg-white p-6 rounded-[2.5rem] shadow-lg border-2 border-red-500 flex flex-col card-hover relative">
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-1 rounded-full text-[10px] font-black uppercase tracking-wider whitespace-nowrap">Offre Restaurant</div>
-                <div class="mb-6 overflow-hidden rounded-3xl h-56 md:h-64 bg-gray-100 shadow-inner">
-                    <img src="https://i.postimg.cc/prxsTw99/79FD6CEA-CC88-4FBB-959A-91ABEE563EAC.png" alt="Pack Restaurant Digital" class="w-full h-full object-cover">
-                </div>
-                <div class="px-2 md:px-4">
-                    <h3 class="text-xl font-black mb-2 uppercase tracking-tight text-gray-900">PACK RESTAURANT</h3>
-                    <p class="text-gray-500 mb-6 text-sm italic">Solution Complète pour 10 Tables</p>
-                    <div class="text-4xl font-black mb-8 text-gray-900 italic">1500 <span class="text-lg text-gray-400 uppercase font-normal text-gray-400">DH</span></div>
-                    <ul class="space-y-4 mb-10 flex-grow text-gray-600 text-sm font-medium">
-                        <li class="flex items-center text-red-600 font-bold"><i class="fas fa-check-circle mr-3"></i> <strong>POUR 10 TABLES</strong></li>
-                        <li class="flex items-center text-gray-900"><i class="fas fa-list-alt mr-3 text-red-600"></i> <strong>MENU DIGITAL À TABLE</strong></li>
-                        <li class="flex items-center text-gray-900"><i class="fas fa-star mr-3 text-red-600"></i> <strong>REVIEWS SUR GOOGLE</strong></li>
-                        <li class="flex items-center text-red-600"><i class="fas fa-truck mr-3"></i> <strong>LIVRAISON GRATUITE (1H)</strong></li>
-                    </ul>
-                    <a href="https://wa.me/212661389143?text=Bonjour%20GoldTap!%20Je%20souhaite%20commander%20le%20PACK%20RESTAURANT%20(10%20Tables%20+%20Menu%20+%20Reviews)%20à%201500%20DH." target="_blank" class="w-full py-4 block text-center bg-red-600 text-white rounded-2xl font-black hover:bg-red-700 transition shadow-xl uppercase text-xs tracking-widest">Commander le Pack</a>
-                </div>
-            </div>
-
+            <a href="https://www.instagram.com/GOLDTAP_NFC/" target="_blank" class="text-yellow-600 font-bold uppercase text-[10px] tracking-widest hover:text-yellow-700 transition">Voir plus sur Instagram <i class="fab fa-instagram"></i></a>
         </div>
     </section>
 
     <!-- Formulaire de commande -->
-    <section id="contact" class="py-24 bg-gray-900 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-black mb-4 italic uppercase tracking-tighter">Livraison Flash en 1 Heure</h2>
-            <p class="text-lg md:text-xl opacity-80 mb-12 italic text-yellow-500 font-bold">Service Local & Gratuit : Partout à Casablanca.</p>
-            
-            <div class="bg-white/5 p-8 md:p-12 rounded-[3rem] border border-white/10 text-left shadow-2xl">
-                <form id="orderForm" class="space-y-8">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <label class="block text-[10px] font-black mb-3 opacity-50 uppercase tracking-[0.2em]">Votre Secteur / Nom</label>
-                            <input type="text" id="orderName" required placeholder="Ex: Restaurant Maârif" class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white placeholder-white/20 transition-all">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-black mb-3 opacity-50 uppercase tracking-[0.2em]">Quartier de Livraison</label>
-                            <input type="text" id="orderQuartier" required placeholder="Ex: Gauthier, Ain Diab..." class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white placeholder-white/20 transition-all">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-black mb-3 opacity-50 uppercase tracking-[0.2em]">Pack Souhaité</label>
-                        <select id="orderPack" class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white transition-all">
-                            <option value="1 CARTE (250 DH)" class="text-gray-900">PACK PRO - 1 Carte (250 DH)</option>
-                            <option value="2 CARTES (450 DH)" class="text-gray-900">PACK GOLD - 2 Cartes (450 DH)</option>
-                            <option value="PACK RESTAURANT 10 TABLES (1500 DH)" selected class="text-gray-900">PACK RESTAURANT - 10 Tables + Menu + Reviews (1500 DH)</option>
-                        </select>
-                    </div>
-                    <button type="button" onclick="sendWhatsAppOrder()" class="w-full bg-red-600 py-6 rounded-2xl font-black text-xl hover:bg-red-500 transition shadow-2xl shadow-red-600/40 flash-delivery uppercase tracking-tighter">
-                        ENVOYER MA COMMANDE : GRATUIT EN 1H ⚡
-                    </button>
-                    <p class="text-center text-[10px] opacity-30 uppercase tracking-widest mt-4 italic">Un conseiller vous répondra instantanément sur WhatsApp</p>
+    <section id="contact" class="py-16 bg-gray-900 text-white">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-black mb-3 uppercase italic">Livraison Flash 1 Heure</h2>
+            <p class="text-[10px] opacity-60 uppercase tracking-widest mb-8">Gratuit partout à Casablanca</p>
+            <div class="bg-white/5 p-6 rounded-[2.5rem] border border-white/10 text-left">
+                <form id="orderForm" class="space-y-6">
+                    <input type="text" id="orderName" placeholder="Votre Nom ou Enseigne" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-yellow-500">
+                    <input type="text" id="orderQuartier" placeholder="Votre Quartier (Ex: Gauthier)" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-yellow-500">
+                    <select id="orderPack" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-sm text-gray-400 focus:outline-none focus:ring-1 focus:ring-yellow-500">
+                        <option value="150">PACK PRO (1 Carte - 150 DH)</option>
+                        <option value="280">PACK GOLD (2 Cartes - 280 DH)</option>
+                        <option value="1500">PACK RESTAURANT (10 Tables - 1500 DH)</option>
+                    </select>
+                    <button type="button" onclick="sendWhatsAppOrder()" class="w-full bg-red-600 py-5 rounded-xl font-black flash-delivery uppercase tracking-tighter text-white">COMMANDER : GRATUIT EN 1H ⚡</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-16 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-center md:text-left">
-            <div>
-                <div class="flex items-center justify-center md:justify-start gap-2 mb-6">
-                    <div class="nfc-gradient p-1.5 rounded-lg text-white">
-                        <i class="fas fa-rss text-lg transform rotate-45"></i>
-                    </div>
-                    <span class="text-xl font-black tracking-tight uppercase">GOLDTAP<span class="text-yellow-600">NFC</span></span>
-                </div>
-                <p class="text-[10px] opacity-50 font-bold uppercase tracking-widest leading-loose">La révolution digitale pour les commerces de Casablanca. Cartes NFC, Menu Digital & Avis Google.</p>
-            </div>
-            <div>
-                <h4 class="font-black mb-4 text-yellow-600 text-[10px] uppercase tracking-[0.2em]">Contact Casa</h4>
-                <ul class="space-y-3 text-xs opacity-50 font-bold">
-                    <li><i class="fas fa-phone mr-3 text-yellow-600"></i> +212 661 389 143</li>
-                    <li><i class="fas fa-map-marker-alt mr-3 text-yellow-600"></i> Casablanca, Maroc</li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-black mb-4 text-yellow-600 text-[10px] uppercase tracking-[0.2em]">Suivez-nous</h4>
-                <div class="flex flex-col items-center md:items-start gap-4">
-                    <div class="flex gap-4">
-                        <a href="https://wa.me/212661389143" target="_blank" class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-yellow-600 transition hover:text-black shadow-xl"><i class="fab fa-whatsapp text-xl"></i></a>
-                        <a href="https://www.instagram.com/GOLDTAP_NFC/" target="_blank" class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-yellow-600 transition hover:text-black shadow-xl"><i class="fab fa-instagram text-xl"></i></a>
-                    </div>
-                    <p class="text-[10px] font-black uppercase tracking-widest text-yellow-600 opacity-60">Instagram : @GOLDTAP_NFC</p>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-white/5 text-center text-[10px] opacity-20 tracking-[0.3em] uppercase font-black">
-            &copy; 2024 GOLDTAPNFC. Livraison Gratuite 1H Casablanca.
-        </div>
+    <footer class="bg-black text-white py-12 text-center border-t border-white/5">
+        <p class="text-[10px] opacity-50 uppercase tracking-[0.4em] font-black">GOLDTAPNFC Casablanca. &copy; 2024</p>
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/212661389143" target="_blank" class="whatsapp-float group bg-[#25d366] shadow-2xl">
-        <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 font-black whitespace-nowrap uppercase text-[10px] mr-2">Contact Flash ⚡</span>
-        <i class="fab fa-whatsapp text-3xl"></i>
+    <a href="https://wa.me/212661389143" target="_blank" class="whatsapp-float bg-[#25d366] text-white">
+        <i class="fab fa-whatsapp text-2xl"></i>
     </a>
 
     <script>
-        // Animation Typewriter pour le titre
         const text = "Exploser vos Avis Google.";
         const speed = 100;
         let i = 0;
@@ -392,47 +330,23 @@
             }
         }
 
-        // Lancement au chargement
         window.onload = function() {
             typeWriter();
         };
 
-        // Défilement fluide
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId.startsWith('#')) {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-
-        // Fonction pour envoyer la commande via WhatsApp
         function sendWhatsAppOrder() {
             const name = document.getElementById('orderName').value;
             const quartier = document.getElementById('orderQuartier').value;
-            const packSelection = document.getElementById('orderPack').value;
-
-            if(!name || !quartier) {
-                alert("Veuillez remplir les informations pour la livraison en 1H.");
-                return;
-            }
-
-            let customMessage = "";
-            if(packSelection.includes("RESTAURANT")) {
-                customMessage = `Je souhaite commander le *PACK RESTAURANT (10 Tables + Menu + Reviews)* à 1500 DH.`;
-            } else {
-                customMessage = `Je souhaite commander le pack *${packSelection}*.`;
-            }
-
-            const message = `Bonjour GoldTap! 👋 %0A%0A${customMessage}%0A%0A👤 *Client/Enseigne:* ${name}%0A📍 *Quartier à Casa:* ${quartier}%0A%0AMerci de me recontacter pour lancer le projet! ⚡`;
+            const packVal = document.getElementById('orderPack').value;
             
+            if(!name || !quartier) return alert("Veuillez remplir vos informations de livraison !");
+            
+            let packName = "";
+            if(packVal == "150") packName = "PACK PRO (1 Carte)";
+            else if(packVal == "280") packName = "PACK GOLD (2 Cartes)";
+            else packName = "PACK RESTAURANT (10 Tables)";
+
+            const message = `Bonjour GoldTap! 👋%0A%0AJe souhaite commander le *${packName}*.%0A👤 *Client:* ${name}%0A📍 *Livraison:* ${quartier}%0A%0AMerci de me confirmer la livraison en 1H! ⚡`;
             window.open(`https://wa.me/212661389143?text=${message}`, '_blank');
         }
     </script>
