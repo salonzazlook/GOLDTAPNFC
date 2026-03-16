@@ -71,6 +71,21 @@
         .animate-marquee {
             animation: marquee 20s linear infinite;
         }
+
+        /* Animation Machine à écrire */
+        .typing-container {
+            display: inline-block;
+        }
+        
+        .typing-text::after {
+            content: "|";
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -111,8 +126,9 @@
                     <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-yellow-100 text-yellow-700 text-[10px] md:text-xs font-bold mb-6 uppercase tracking-wider">
                         <i class="fas fa-star text-yellow-500"></i> Boosteur de Réputation en ligne
                     </div>
-                    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-                        Votre Carte NFC pour <span class="text-yellow-600 font-black italic">Exploser vos Avis Google.</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6 min-h-[120px] md:min-h-[160px]">
+                        Votre Carte NFC pour <br>
+                        <span class="text-yellow-600 font-black italic typing-text" id="typewriter"></span>
                     </h1>
                     <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
                         Le moyen le plus simple et rapide de récolter des avis 5 étoiles à Casablanca. Approchez simplement le téléphone de votre client de votre carte GOLDTAP.
@@ -122,7 +138,7 @@
                             Commander via WhatsApp <i class="fab fa-whatsapp text-green-400"></i>
                         </a>
                         <a href="#packs" class="border-2 border-gray-200 bg-white text-gray-700 px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-50 transition flex items-center justify-center gap-2">
-                            Voir les Solutions
+                            Voir nos PACKS
                         </a>
                     </div>
                     <p class="mt-6 text-red-600 font-bold text-sm uppercase flex items-center justify-center md:justify-start gap-2">
@@ -232,7 +248,7 @@
                 <div class="px-2 md:px-4">
                     <h3 class="text-xl font-black mb-2 uppercase tracking-tight text-gray-900">PACK PRO</h3>
                     <p class="text-gray-500 mb-6 text-sm italic">Solution individuelle</p>
-                    <div class="text-4xl font-black mb-8 text-gray-900 italic">250 <span class="text-lg text-gray-400 uppercase font-normal">DH</span></div>
+                    <div class="text-4xl font-black mb-8 text-gray-900 italic">250 <span class="text-lg text-gray-400 uppercase font-normal text-gray-400">DH</span></div>
                     <ul class="space-y-4 mb-10 flex-grow text-gray-600 text-sm font-medium">
                         <li class="flex items-center"><i class="fas fa-id-card text-yellow-600 mr-3"></i> 1 Carte NFC Premium</li>
                         <li class="flex items-center text-red-600"><i class="fas fa-truck mr-3"></i> <strong>LIVRAISON GRATUITE (1H)</strong></li>
@@ -252,7 +268,7 @@
                 <div class="px-2 md:px-4">
                     <h3 class="text-xl font-black mb-2 uppercase text-yellow-500 tracking-tight">PACK GOLD</h3>
                     <p class="text-gray-400 mb-6 text-sm italic">Le pack idéal pour les pro</p>
-                    <div class="text-4xl font-black mb-8 text-white italic">450 <span class="text-lg text-yellow-500 uppercase font-normal">DH</span></div>
+                    <div class="text-4xl font-black mb-8 text-white italic">450 <span class="text-lg text-yellow-500 uppercase font-normal text-gray-400">DH</span></div>
                     <ul class="space-y-4 mb-10 flex-grow text-gray-300 text-sm font-medium">
                         <li class="flex items-center"><i class="fas fa-copy text-yellow-500 mr-3"></i> 2 Cartes NFC Premium</li>
                         <li class="flex items-center text-yellow-500"><i class="fas fa-truck mr-3"></i> <strong>LIVRAISON GRATUITE (1H)</strong></li>
@@ -363,6 +379,24 @@
     </a>
 
     <script>
+        // Animation Typewriter pour le titre
+        const text = "Exploser vos Avis Google.";
+        const speed = 100;
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        // Lancement au chargement
+        window.onload = function() {
+            typeWriter();
+        };
+
         // Défilement fluide
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
